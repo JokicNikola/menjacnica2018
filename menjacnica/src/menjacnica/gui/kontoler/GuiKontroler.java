@@ -79,7 +79,7 @@ public class GuiKontroler {
 	
 	public static void prikaziAboutProzor(){
 		JOptionPane.showMessageDialog(null,
-				"Autor: Bojan Tomic, Verzija 1.0", "O programu Menjacnica",
+				"Autor: Nikola Jokic, Verzija 1.0", "O programu Menjacnica",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 	
@@ -132,8 +132,36 @@ public static void izvrsiZamenu(Valuta valuta, boolean prodaja, double iznos){
 	} catch (Exception e1) {
 	JOptionPane.showMessageDialog(gp, e1.getMessage(),
 			"Greska", JOptionPane.ERROR_MESSAGE);
+	}
 }
+
+public static void unesiKurs(int sifra, String naziv, double prodajni, double kupovni, double srednji,
+		String skraceno) {
+	try {
+		Valuta valuta = new Valuta();
+
+		
+		valuta.setNaziv(naziv);
+		valuta.setSkraceniNaziv(skraceno);
+		valuta.setSifra((sifra));
+		valuta.setProdajni(prodajni);
+		valuta.setKupovni(kupovni);
+		valuta.setSrednji(srednji);
+		
+		
+		menjacnica.dodajValutu(valuta);
+
+		
+		gp.prikaziSveValute();
+		
+		
+		
+	} catch (Exception e1) {
+		JOptionPane.showMessageDialog(gp, e1.getMessage(),
+				"Greska", JOptionPane.ERROR_MESSAGE);
+	}
 }
+
 	
 	
 }

@@ -18,6 +18,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 import menjacnica.Valuta;
+import menjacnica.gui.kontoler.GuiKontroler;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -157,7 +158,9 @@ public class DodajKursGUI extends JFrame {
 			btnDodaj = new JButton("Dodaj");
 			btnDodaj.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					unesiKurs();
+					GuiKontroler.unesiKurs((Integer)(spinnerSifra.getValue()),textFieldNaziv.getText(),
+							Double.parseDouble(textFieldProdajniKurs.getText()),Double.parseDouble(textFieldKupovniKurs.getText()),
+							Double.parseDouble(textFieldSrednjiKurs.getText()), textFieldSkraceniNaziv.getText());
 				}
 			});
 		}
@@ -182,29 +185,5 @@ public class DodajKursGUI extends JFrame {
 		return spinnerSifra;
 	}
 	
-	private void unesiKurs() {
-		try {
-			Valuta valuta = new Valuta();
-
-			// Punjenje podataka o valuti
-			valuta.setNaziv(textFieldNaziv.getText());
-			valuta.setSkraceniNaziv(textFieldSkraceniNaziv.getText());
-			valuta.setSifra((Integer)(spinnerSifra.getValue()));
-			valuta.setProdajni(Double.parseDouble(textFieldProdajniKurs.getText()));
-			valuta.setKupovni(Double.parseDouble(textFieldKupovniKurs.getText()));
-			valuta.setSrednji(Double.parseDouble(textFieldSrednjiKurs.getText()));
-			
-			// Dodavanje valute u kursnu listu
-			glavniProzor.sistem.dodajValutu(valuta);
-
-			// Osvezavanje glavnog prozora
-			glavniProzor.prikaziSveValute();
-			
-			//Zatvaranje DodajValutuGUI prozora
-			dispose();
-		} catch (Exception e1) {
-			JOptionPane.showMessageDialog(contentPane, e1.getMessage(),
-					"Greska", JOptionPane.ERROR_MESSAGE);
-		}
-	}
+	
 }
