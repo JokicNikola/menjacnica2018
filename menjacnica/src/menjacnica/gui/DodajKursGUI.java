@@ -41,7 +41,7 @@ public class DodajKursGUI extends JFrame {
 	private JButton btnDodaj;
 	private JButton btnOdus;
 
-	private MenjacnicaGUI glavniProzor;
+	
 	private JSpinner spinnerSifra;
 
 	/**
@@ -161,6 +161,7 @@ public class DodajKursGUI extends JFrame {
 					GuiKontroler.unesiKurs((Integer)(spinnerSifra.getValue()),textFieldNaziv.getText(),
 							Double.parseDouble(textFieldProdajniKurs.getText()),Double.parseDouble(textFieldKupovniKurs.getText()),
 							Double.parseDouble(textFieldSrednjiKurs.getText()), textFieldSkraceniNaziv.getText());
+				dispose();
 				}
 			});
 		}

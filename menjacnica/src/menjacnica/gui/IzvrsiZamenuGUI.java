@@ -52,7 +52,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 	private JLabel lblKonacniIznos;
 	public static JTextField textFieldKonacniIznos;
 
-	private MenjacnicaGUI glavniProzor;
+	
 	private Valuta valuta;
 
 	/**
@@ -166,7 +166,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 			btnIzvrsiZamenu = new JButton("Izracunaj iznos");
 			btnIzvrsiZamenu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					GuiKontroler.izvrsiZamenu(valuta,!rdbtnProdaja.isSelected(), Double.parseDouble(textFieldIznos.getText()));
+					GuiKontroler.izvrsiZamenu(valuta,rdbtnProdaja.isSelected(), Double.parseDouble(textFieldIznos.getText()));
 				}
 			});
 			btnIzvrsiZamenu.setBounds(24, 234, 160, 25);

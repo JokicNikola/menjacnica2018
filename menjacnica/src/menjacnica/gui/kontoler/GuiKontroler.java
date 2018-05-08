@@ -54,7 +54,7 @@ public class GuiKontroler {
 	
 	public static void ugasiAplikaciju() {
 		int opcija = JOptionPane.showConfirmDialog(null,
-				"Da li ZAISTA zelite da izadjete iz apliacije", "Izlazak",
+				"Da li ZAISTA zelite da izadjete iz aplikacije", "Izlazak",
 				JOptionPane.YES_NO_OPTION);
 
 		if (opcija == JOptionPane.YES_OPTION)
